@@ -1,0 +1,29 @@
+// Dev Container Configuration for RAG Development Environment
+{
+  "name": "RAG Development Environment",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  "runArgs": ["--net=host"],
+  "features": {
+    "ghcr.io/va-h/devcontainers-features/uv:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "terminal.integrated.profiles.linux": {
+          "bash": {
+            "path": "bash"
+          }
+        }
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-python.autopep8",
+        "ms-python.black-formatter",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  },
+  "postCreateCommand": "export UV_LINK_MODE=copy && uv venv && uv pip sync requirements.txt"
+}
