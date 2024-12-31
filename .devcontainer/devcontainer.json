@@ -1,6 +1,6 @@
-// Dev Container Configuration for RAG Environment using Ollama
+// Dev Container Configuration for RAG Application using Ollama
 {
-  "name": "RAG Environment using Ollama",
+  "name": "RAG Application using Ollama",
   "build": {
     "dockerfile": "Dockerfile"
   },

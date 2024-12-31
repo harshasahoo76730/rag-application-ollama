@@ -1,4 +1,4 @@
-# RAG Environment using Ollama
+# RAG Application using Ollama
 
 ## Steps to use Ollama
 
@@ -8,10 +8,11 @@
     - After installing Ollama, setup the required models using the following commands:
 
       ```sh
-      ollama run llama3.2
+      ollama run <model-name>
       ollama run nomic-embed-text
       ```
 
+    - Replace `<model-name>` with the name of the model you want to use (e.g., `llama3.2`, `phi3.5`, etc).
     - Ensure you have the correct configuration settings for Ollama in your environment.
 
 2.  **Check Ollama Status (Host):**
@@ -96,10 +97,36 @@
       python populate_database.py --reset
       ```
 
-2.  **Query the Database:**
+2.  **Query the Models with Context from the Database:**
 
-    - To query the database, run the `query_app.py` script with the query text as an argument.
+    - To query the models with context from the database, run the `query_app.py` script with the query text as an argument.
 
       ```sh
       python query_app.py "Your query text here"
       ```
+
+    - You can pass the name of the model you want to use as an optional argument. If no model name is passed, `llama3.2` will be used as the default.
+    - To specify a different model, use the `--model` option:
+
+      ```sh
+      python query_app.py "Your query text here" --model "<model-name>"
+      ```
+
+    - Replace `<model-name>` with the name of the model you want to use (e.g., `llama3.2`, `phi3.5`, etc).
+
+3.  **Query the Models without Context (Optional):**
+
+    - To query the models without context, run the `query_app.py` script with the `--no_context` flag and the query text as arguments.
+
+      ```sh
+      python query_app.py "Your query text here" --no_context
+      ```
+
+    - You can pass the name of the model you want to use as an optional argument. If no model name is passed, `llama3.2` will be used as the default.
+    - To specify a different model, use the `--model` option:
+
+      ```sh
+      python query_app.py "Your query text here" --model "<model-name>" --no_context
+      ```
+
+    - Replace `<model-name>` with the name of the model you want to use (e.g., `llama3.2`, `phi3.5`, etc).

@@ -16,7 +16,7 @@ DATA_PATH = "data"
 def main():
     # Check if the database should be cleared (using the --reset flag).
     parser = argparse.ArgumentParser()
-    parser.add_argument("--reset", action="store_true", help="Reset Database.")
+    parser.add_argument("--reset", action="store_true", help="Reset Database")
     args = parser.parse_args()
     if args.reset:
         print("✨ Resetting Database")
