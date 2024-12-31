@@ -1,4 +1,4 @@
-# RAG Development Environment
+# RAG Environment using Ollama
 
 ## Steps to use Ollama
 
