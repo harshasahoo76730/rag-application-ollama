@@ -23,8 +23,8 @@ RUN apt-get update -y && apt-get install -y apt-transport-https && \
 
 # Setup Python Environment
 RUN pip install --no-cache-dir --upgrade pip setuptools wheel && \
-    pip --default-timeout=1000 install --no-cache-dir --user \
-    pypdf chromadb \
+    pip --default-timeout=1000 install --no-cache-dir --upgrade --user \
+    pypdf chromadb cryptography==3.1 \
     langchain langchain_chroma langchain_ollama langchain_community && \
     ln -sf /usr/bin/python3 /usr/bin/python
 
