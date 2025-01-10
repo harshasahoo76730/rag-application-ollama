@@ -12,8 +12,7 @@ SHELL ["/bin/bash", "-c"]
 # Setup Bash Environment
 RUN apt-get update -y && apt-get install -y apt-transport-https && \
     apt-get install -y -q --no-install-recommends gpg=\* gnupg=\* ca-certificates=\* wget=\* curl=\* python3-pip=\* \
-    software-properties-common autoconf autogen automake cmake make meson git git-lfs gcc g++ jq vim unzip p7zip-full \
-    snapd dos2unix lshw numactl cpufrequtils network-manager tree libtool libssl-dev libpython3-dev && \
+    libpython3-dev libssl-dev software-properties-common snapd git git-lfs lshw numactl network-manager && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
