@@ -1,4 +1,6 @@
 pypdf
+pycryptodomex
+cryptography
 chromadb
 langchain
 langchain_chroma

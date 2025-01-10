@@ -32,52 +32,58 @@
 ## Steps to use Dev Containers
 
 1. **Install Docker Desktop**:
+
    - Ensure Docker Desktop is installed on your machine. You can download and install it from [here](https://www.docker.com/products/docker-desktop).
    - Enable Host Networking under `Settings -> Resources -> Network` in Docker Desktop.
 
 2. **Install Visual Studio Code**:
+
    - Ensure Visual Studio Code is installed on your machine. You can download and install it from [here](https://code.visualstudio.com/).
 
 3. **Install Dev Containers Extension**:
+
    - Open Visual Studio Code.
    - Go to the Extensions view by clicking on the Extensions icon in the Activity Bar on the side of the window or by pressing `Ctrl+Shift+X`.
    - Search for `Dev Containers` and install the extension provided by Microsoft.
 
 4. **Open the Project in a Dev Container**:
+
    - Open the project folder in Visual Studio Code.
    - Press `F1` or `Ctrl+Shift+P` to open the Command Palette.
    - Type `Dev Containers: Reopen in Container` and select it if you are building it for the first time.
    - Type `Dev Containers: Rebuild and Reopen in Container` and select it if you have already used it before.
-   - Visual Studio Code will build the Docker image defined in the `.devcontainer/Dockerfile` and open the project inside the container.
+   - Visual Studio Code will (re)build the container as defined in `.devcontainer/devcontainer.json` and open the project inside the container.
 
 5. **Start Developing**:
+
    - Once the container is up and running, you can start developing your project.
-   - The container will have all the necessary dependencies and tools installed as defined in the `.devcontainer/Dockerfile`.
+   - The container will have all the necessary dependencies and tools installed as defined in `.devcontainer/devcontainer.json`.
 
 6. **Accessing the Terminal**:
+
    - You can access the terminal inside the container by opening the Terminal view in Visual Studio Code (`` Ctrl+` ``).
 
-7.  **Check Ollama Status (Dev Container):**
+7. **Check Ollama Status (Dev Container):**
 
-    - Use the following `curl` command to check if Ollama is up and running:
+   - Use the following `curl` command to check if Ollama is up and running:
 
-      ```sh
-      curl http://localhost:11434
-      ```
+     ```sh
+     curl http://localhost:11434
+     ```
 
-    - You should see the below output:
+   - You should see the below output:
 
-      ```sh
-      Ollama is running
-      ```
+     ```sh
+     Ollama is running
+     ```
 
 8. **Stopping the Container**:
+
    - To stop the container, simply close Visual Studio Code or use the Docker Dashboard to stop the container manually.
 
 9. **Rebuilding the Container**:
-   - If you make changes to the `.devcontainer/Dockerfile` or `.devcontainer/devcontainer.json`, you may need to rebuild the container.
+   - If you make changes to `.devcontainer/devcontainer.json`, you may need to rebuild the container.
    - You can do this by pressing `F1` or `Ctrl+Shift+P` to open the Command Palette, typing `Dev Containers: Rebuild Container`, and selecting it.
-
 
 ## Steps to execute
 
