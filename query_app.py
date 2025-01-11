@@ -5,6 +5,7 @@ from langchain.prompts import ChatPromptTemplate
 from langchain_chroma import Chroma
 from langchain_ollama import OllamaLLM
 
+
 MODEL = "llama3.2"
 CHROMA_PATH = "chroma"
 PROMPT_TEMPLATE = """
