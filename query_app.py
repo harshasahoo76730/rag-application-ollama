@@ -29,7 +29,8 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("query_text", type=str, help="Query Text")
     parser.add_argument("--model", type=str, default=MODEL, help="Model Name")
-    parser.add_argument("--no_context", action="store_true", help="Disable Context")
+    parser.add_argument("--no_context", action="store_true",
+                        help="Disable Context")
     args = parser.parse_args()
     query_text = args.query_text
     model_name = args.model
@@ -41,17 +42,21 @@ def query_rag(query_text: str, model_name: str, no_context: bool):
     if not no_context:
         # Prepare DB
         embedding_function = get_embedding_function()
-        db = Chroma(persist_directory=CHROMA_PATH, embedding_function=embedding_function)
+        db = Chroma(persist_directory=CHROMA_PATH,
+                    embedding_function=embedding_function)
 
         # Search DB
         results = db.similarity_search_with_score(query_text, k=5)
 
         # Context Text
-        context_text = "\n\n---\n\n".join([doc.page_content for doc, _score in results])
+        context_text = "\n\n---\n\n".join(
+            [doc.page_content for doc, _score in results])
         sources = [doc.metadata.get("id", None) for doc, _score in results]
 
-        prompt_template_with_context = ChatPromptTemplate.from_template(PROMPT_TEMPLATE_WITH_CONTEXT)
-        prompt = prompt_template_with_context.format(context=context_text, question=query_text)
+        prompt_template_with_context = ChatPromptTemplate.from_template(
+            PROMPT_TEMPLATE_WITH_CONTEXT)
+        prompt = prompt_template_with_context.format(
+            context=context_text, question=query_text)
     else:
         prompt_template = ChatPromptTemplate.from_template(PROMPT_TEMPLATE)
         prompt = prompt_template.format(question=query_text)
